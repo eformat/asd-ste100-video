@@ -79,7 +79,3 @@ System side — shells out to these, checked at build time:
 
 No screen recording anywhere — stills + measured audio only, so builds
 are deterministic and never drift.
-
-## Git
-
-Files created by the assistant; commits are made by the repo owner.
