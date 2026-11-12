@@ -1,0 +1,16 @@
+[project]
+name = "explainer-video"
+version = "0.1.0"
+description = "Short, narrated explainer videos from a scene script — edge-tts narration, headless-Chrome slides, deterministic ffmpeg assembly"
+requires-python = ">=3.9"
+dependencies = [
+    # 7.2.8 sends a stale pinned token and WSServerHandshakeError-403s on EVERY
+    # synthesis call; >= 7.3.1 is clean. Do not loosen this floor.
+    "edge-tts>=7.3.1",
+]
+
+# The pipeline also shells out to tools that are NOT pip-installable, checked
+# at build time by both scripts:
+#   - google-chrome (or chromium)     renders the slide PNGs
+#   - ffmpeg WITH libopenh264 + aac   encodes the segments
+#   - ffprobe                         measures narration, validates output

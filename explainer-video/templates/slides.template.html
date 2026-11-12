@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --bg:#151515; --red:#EE0000; --ink:#F2F2F2; --sub:#D2D2D2; --dim:#8A8A8A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1920px;height:1080px;overflow:hidden}
+  body{background:var(--bg);color:var(--ink);
+       font-family:'Red Hat Text','Overpass','Segoe UI',system-ui,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  #stage{position:relative;width:1920px;height:1080px;padding:120px 150px;
+         display:flex;flex-direction:column}
+  .pagenum{position:absolute;top:44px;right:64px;font-size:24px;color:var(--dim);
+           letter-spacing:.15em}
+  .redbar{position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--red)}
+  .footer{position:absolute;left:0;right:0;bottom:44px;text-align:center;
+          font-size:22px;color:var(--dim);letter-spacing:.28em;text-transform:uppercase}
+  .kicker{color:var(--red);font-weight:700;font-size:24px;letter-spacing:.22em;
+          text-transform:uppercase;margin-bottom:28px}
+  h1{font-size:96px;font-weight:800;letter-spacing:-.01em;line-height:1.05}
+  .dash{width:64px;height:8px;background:var(--red);margin-bottom:44px}
+  .content{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .text{font-size:42px;line-height:1.55;color:var(--sub);max-width:1500px}
+  .bullets{display:grid;grid-template-columns:1fr 1fr;gap:48px 80px;margin-top:12px}
+  .bullets.single{grid-template-columns:1fr;gap:40px}
+  .bullet{display:flex;gap:24px;align-items:flex-start;
+          font-size:40px;line-height:1.4;color:var(--sub)}
+  .bullet::before{content:"";flex:0 0 16px;height:16px;background:var(--red);
+                  margin-top:16px}
+  .callout{margin-top:60px;background:#2E2E2E;border-left:8px solid var(--red);
+           padding:26px 38px;font-size:34px;color:var(--ink);max-width:1450px}
+  /* title card */
+  .titlecard h1{font-size:150px;margin-bottom:20px}
+  .titlecard .subtitle{font-size:44px;color:var(--sub)}
+  .meta{position:absolute;left:150px;bottom:44px;font-size:22px;color:var(--dim);
+        letter-spacing:.28em;text-transform:uppercase}
+  /* outro */
+  .outro .line{font-size:120px;font-weight:800;line-height:1.15}
+  .outro .accent{color:var(--red)}
+  .outro .sub{font-size:38px;color:var(--sub);margin-top:40px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="pagenum"></div>
+  <div class="content"></div>
+  <div class="footer"></div>
+  <div class="redbar"></div>
+</div>
+<script>
+const D = /*__DATA__*/null;
+document.querySelector('.pagenum').textContent = D.page || '';
+document.querySelector('.footer').textContent = D.footer || '';
+const C = document.querySelector('.content');
+if (D.type === 'title') {
+  C.classList.add('titlecard');
+  C.innerHTML = `<div class="dash"></div><h1>${D.title}</h1>` +
+                `<div class="subtitle">${D.subtitle || ''}</div>`;
+  if (D.meta) {
+    const m = document.createElement('div');
+    m.className = 'meta'; m.textContent = D.meta;
+    document.getElementById('stage').appendChild(m);
+  }
+} else if (D.type === 'outro') {
+  C.classList.add('outro');
+  C.innerHTML = `<div class="line">${D.title || ''}</div>` +
+                `<div class="line accent">${D.accent || ''}</div>` +
+                `<div class="sub">${D.subtitle || ''}</div>`;
+} else {
+  let h = '';
+  if (D.kicker) h += `<div class="kicker">${D.kicker}</div>`;
+  h += `<h1>${D.title || ''}</h1>`;
+  if (D.text) h += `<div class="text" style="margin-top:44px">${D.text}</div>`;
+  if (D.bullets && D.bullets.length) {
+    const single = D.bullets.length < 4 ? ' single' : '';
+    h += `<div class="bullets${single}">` +
+         D.bullets.map(b => `<div class="bullet"><span>${b}</span></div>`).join('') +
+         `</div>`;
+  }
+  if (D.callout) h += `<div class="callout">${D.callout}</div>`;
+  C.innerHTML = h;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{
+  "name": "asd-ste100-explainer",
+  "voice": "en-US-JennyNeural",
+  "rate": "+20%",
+  "target": 32,
+  "pad": 0.4,
+  "scenes": [
+    {
+      "type": "title",
+      "hold": 0.8,
+      "title": "ASD-STE100",
+      "subtitle": "Simplified Technical English",
+      "meta": "EXPLAINER | 30 SECONDS",
+      "narration": "ASD dash STE one hundred means Simplified Technical English."
+    },
+    {
+      "type": "body",
+      "kicker": "THE STANDARD",
+      "title": "What is it?",
+      "text": "A specification for writing technical documentation that anyone — in any language — can understand. Born in aerospace maintenance, used far beyond it.",
+      "narration": "A specification for writing technical documentation that anyone, anywhere, can understand."
+    },
+    {
+      "type": "body",
+      "kicker": "PART 1",
+      "title": "Writing rules",
+      "bullets": [
+        "Short sentences, ~20 words",
+        "One idea per sentence",
+        "Active voice, keep tense simple",
+        "Simple, everyday words"
+      ],
+      "narration": "Writing rules: short sentences, one idea each, active voice, everyday words."
+    },
+    {
+      "type": "body",
+      "kicker": "PART 2",
+      "title": "The dictionary",
+      "bullets": [
+        "Approved words only — checked, one meaning",
+        "Non-approved words need explicit approval",
+        "No slang, no jargon, no ambiguity"
+      ],
+      "callout": "One word = one meaning. \"Start\" is approved; \"begin\" is not.",
+      "narration": "The dictionary: approved words only. One word, one meaning. Start, not begin."
+    },
+    {
+      "type": "body",
+      "kicker": "WHY IT MATTERS",
+      "title": "What you get",
+      "bullets": [
+        "Clear for non-native readers",
+        "Fewer costly mistakes",
+        "Easier translation",
+        "Consistent, on-brand docs"
+      ],
+      "narration": "Clear for non-native readers, fewer mistakes, easier translation."
+    },
+    {
+      "type": "outro",
+      "hold": 0.8,
+      "title": "Simple words.",
+      "accent": "Clear docs.",
+      "subtitle": "That is ASD-STE100 — Simplified Technical English",
+      "footer": "LEARN MORE: ASD-STE100.ORG",
+      "narration": "Simple words, clear docs. Learn more at ASD-STE100 dot org."
+    }
+  ]
+}

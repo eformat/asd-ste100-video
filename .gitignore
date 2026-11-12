@@ -1,0 +1,5 @@
+__pycache__/
+build/
+*.mp4
+!docs/*.mp4
+*.webm
