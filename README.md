@@ -9,7 +9,7 @@ neural TTS narration (edge-tts), assembled deterministically with ffmpeg.
 The pipeline's original output — a 32-second **ASD-STE100** explainer,
 narrated by `en-US-JennyNeural @ +20%`:
 
-[![ASD-STE100 explainer — 32s, edge-tts narrated, Red Hat–styled slides](docs/asd-ste100-explainer.jpg)](docs/asd-ste100-explainer.mp4)
+[![ASD-STE100 explainer — 32s, edge-tts narrated, Red Hat–styled slides](docs/asd-ste100-explainer.jpg)](https://eformat.github.io/asd-ste100-video/asd-ste100-explainer.html)
 
 *32s · 1920×1080 · 1.1 MB — click the poster to play. Built by
 `make_video.py` from [`explainer-video/examples/asd-ste100.json`](explainer-video/examples/asd-ste100.json),
